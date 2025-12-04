@@ -68,6 +68,7 @@ const Navbar = ({ onNavigate }) => {
     { name: '機能', href: '#functions' },
     { name: '料金', href: '#pricing' },
     { name: 'よくある質問', href: '#faq' },
+    { name: '産後ダイエット', href: '#postpartum-diet' },
   ];
 
   return (
@@ -85,7 +86,17 @@ const Navbar = ({ onNavigate }) => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {links.map(link => (
-            <a key={link.name} href={link.href} className="text-sm font-bold text-gray-600 hover:text-[#2251FF] transition-colors">
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => {
+                if (link.href === '#postpartum-diet') {
+                  e.preventDefault();
+                  onNavigate('postpartum-diet');
+                }
+              }}
+              className="text-sm font-bold text-gray-600 hover:text-[#2251FF] transition-colors"
+            >
               {link.name}
             </a>
           ))}
@@ -111,7 +122,18 @@ const Navbar = ({ onNavigate }) => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 p-6 flex flex-col gap-4 shadow-xl h-screen">
           {links.map(link => (
-            <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-800 py-2">
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => {
+                if (link.href === '#postpartum-diet') {
+                  e.preventDefault();
+                  onNavigate('postpartum-diet');
+                }
+                setIsOpen(false);
+              }}
+              className="text-xl font-bold text-gray-800 py-2"
+            >
               {link.name}
             </a>
           ))}
