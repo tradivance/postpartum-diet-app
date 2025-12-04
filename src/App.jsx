@@ -143,7 +143,7 @@ const Hero = () => {
       {/* 背景画像（最下層・Z層0） */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1599447332720-d3ec03389140?q=80&w=2574&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1584863289773-b49588422771?q=80&w=2574&auto=format&fit=crop"
           alt="産後ピラティス"
           className="w-full h-full object-cover"
         />
