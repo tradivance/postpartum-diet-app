@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Menu, X, CheckCircle, 
-  LayoutDashboard, PieChart, Activity, Users, 
+import {
+  Menu, X, CheckCircle,
+  LayoutDashboard, PieChart, Activity, Users,
   Lightbulb, ArrowLeftRight, Code, Bell,
-  ArrowRight, Plus, Minus, ChevronLeft, ChevronRight, Pause
+  ArrowRight, Plus, Minus, ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 // --- Colors & Styles ---
@@ -233,16 +233,42 @@ const Hero = () => {
 };
 
 const LogoTicker = () => {
+  const logos = ['Esenta', 'Vertexia', 'Fortitude', 'Solidora', 'Nortac', 'Inventura'];
+
   return (
     <div className="py-10 border-y border-gray-100 bg-white overflow-hidden">
+      <style>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .logo-scroll {
+          animation: scroll-left 30s linear infinite;
+        }
+        .logo-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6 mb-6">
-        <p className="text-xs font-bold text-gray-400 tracking-widest uppercase text-center">導入企業</p>
+        <p className="text-sm font-bold text-gray-400 tracking-widest uppercase text-center">導入企業</p>
       </div>
-      <div className="flex justify-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
-        {/* Placeholder Logos */}
-        {['Esenta', 'Vertexia', 'Fortitude', 'Solidora', 'Nortac', 'Inventura'].map((logo, i) => (
-          <span key={i} className="text-xl md:text-2xl font-bold font-sans tracking-tight">{logo}</span>
-        ))}
+
+      <div className="w-full overflow-hidden">
+        <div className="flex gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-500 logo-scroll whitespace-nowrap">
+          {/* Original logos */}
+          {logos.map((logo, i) => (
+            <span key={i} className="text-xl md:text-2xl font-bold font-sans tracking-tight flex-shrink-0">{logo}</span>
+          ))}
+          {/* Duplicated logos for seamless loop */}
+          {logos.map((logo, i) => (
+            <span key={`duplicate-${i}`} className="text-xl md:text-2xl font-bold font-sans tracking-tight flex-shrink-0">{logo}</span>
+          ))}
+        </div>
       </div>
     </div>
   );
