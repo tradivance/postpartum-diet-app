@@ -140,17 +140,22 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden pt-16">
+      {/* 背景画像（最下層・Z層0） */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1599447332720-d3ec03389140?q=80&w=2574&auto=format&fit=crop"
           alt="産後ピラティス"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 mt-16">
+      {/* 白い透過背景（左半分だけ・Z層10・pointer-eventsなし） */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <div className="absolute left-0 top-0 w-full md:w-1/2 h-full bg-white/40"></div>
+      </div>
+
+      {/* テキストコンテンツ（最上層・Z層20） */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-8 mt-16">
         <div className="max-w-2xl">
           <p className="font-bold text-pink-500 mb-4 tracking-[0.2em] text-sm md:text-base font-en">POSTPARTUM CARE</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight" style={{ fontFamily: "'Shippori Mincho', serif" }}>
@@ -179,7 +184,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* スクロールダウン表示（Z層20） */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="flex flex-col items-center gap-2">
           <span className="text-xs font-en tracking-widest text-gray-500">SCROLL</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: colors.pink }}>
