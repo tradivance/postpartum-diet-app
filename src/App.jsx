@@ -145,7 +145,7 @@ const Hero = () => {
         {/* 左上 */}
         <div className="w-full h-1/2 bg-gray-400">
           <img
-            src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1000&auto=format&fit=crop"
+            src="/images/dietLP_test_1.jpeg"
             alt="産後ピラティス1"
             className="w-full h-full object-cover"
           />
@@ -153,7 +153,7 @@ const Hero = () => {
         {/* 右上 */}
         <div className="w-full h-1/2 bg-gray-400">
           <img
-            src="https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=1000&auto=format&fit=crop"
+            src="/images/dietLP_test_1.jpeg"
             alt="産後ピラティス2"
             className="w-full h-full object-cover"
           />
@@ -161,7 +161,7 @@ const Hero = () => {
         {/* 左下 */}
         <div className="w-full h-1/2 bg-gray-400">
           <img
-            src="https://images.unsplash.com/photo-1591343395082-e120087004b4?q=80&w=1000&auto=format&fit=crop"
+            src="/images/dietLP_test_1.jpeg"
             alt="産後ピラティス3"
             className="w-full h-full object-cover"
           />
@@ -169,7 +169,7 @@ const Hero = () => {
         {/* 右下 */}
         <div className="w-full h-1/2 bg-gray-400">
           <img
-            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1000&auto=format&fit=crop"
+            src="/images/dietLP_test_1.jpeg"
             alt="産後ピラティス4"
             className="w-full h-full object-cover"
           />
