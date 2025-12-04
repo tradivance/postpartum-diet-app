@@ -571,7 +571,7 @@ const Footer = () => {
 // --- Main Component ---
 const App = () => {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:text-white scroll-smooth" style={{ selectionColor: colors.pink }}>
+    <div className="min-h-screen bg-white font-sans text-gray-900 selection:text-black scroll-smooth" style={{ selectionColor: '#e5e7eb' }}>
       <Navbar />
       <Hero />
       <ConcernsSection />
