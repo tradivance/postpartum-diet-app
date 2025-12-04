@@ -140,8 +140,44 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden pt-16">
-      {/* 背景画像（最下層・Z層0） */}
-      <div className="absolute inset-0 z-0">
+      {/* 背景画像グリッド（4分割・Z層0） */}
+      <div className="absolute inset-0 z-0 hidden md:grid md:grid-cols-2 gap-0">
+        {/* 左上 */}
+        <div className="w-full h-1/2 bg-gray-400">
+          <img
+            src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1000&auto=format&fit=crop"
+            alt="産後ピラティス1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* 右上 */}
+        <div className="w-full h-1/2 bg-gray-400">
+          <img
+            src="https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=1000&auto=format&fit=crop"
+            alt="産後ピラティス2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* 左下 */}
+        <div className="w-full h-1/2 bg-gray-400">
+          <img
+            src="https://images.unsplash.com/photo-1591343395082-e120087004b4?q=80&w=1000&auto=format&fit=crop"
+            alt="産後ピラティス3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* 右下 */}
+        <div className="w-full h-1/2 bg-gray-400">
+          <img
+            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1000&auto=format&fit=crop"
+            alt="産後ピラティス4"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      {/* モバイル用背景画像 */}
+      <div className="absolute inset-0 z-0 md:hidden">
         <img
           src="/images/dietLP_test_1.jpeg"
           alt="産後ピラティス"
@@ -149,9 +185,15 @@ const Hero = () => {
         />
       </div>
 
-      {/* 白い透過背景（左半分だけ・Z層10・pointer-eventsなし） */}
+      {/* グラデーション白いレイヤー（左：100% - 右：0%）・Z層10 */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        <div className="absolute left-0 top-0 w-full md:w-1/2 h-full bg-white/40"></div>
+        <div
+          className="absolute left-0 top-0 h-full"
+          style={{
+            width: '66.67%',
+            background: 'linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%)'
+          }}
+        ></div>
       </div>
 
       {/* テキストコンテンツ（最上層・Z層20） */}
