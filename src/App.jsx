@@ -5,6 +5,7 @@ import {
   Lightbulb, ArrowLeftRight, Code, Bell,
   ArrowRight, Plus, Minus, ChevronLeft, ChevronRight
 } from 'lucide-react';
+import PostpartumDietPage from './PostpartumDietPage';
 
 // --- Colors & Styles ---
 const colors = {
@@ -51,7 +52,7 @@ const Reveal = ({ children, className = "", delay = 0 }) => {
 
 // --- UI Components ---
 
-const Navbar = () => {
+const Navbar = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -72,10 +73,14 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2 font-bold text-2xl" style={{ color: colors.primary }}>
+        <button
+          onClick={() => onNavigate('home')}
+          className="flex items-center gap-2 font-bold text-2xl cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ color: colors.primary }}
+        >
           <div className="w-8 h-8 rounded-md flex items-center justify-center text-white text-xs font-black tracking-tighter" style={{ backgroundColor: colors.primary }}>AI</div>
           <span>AI SincStudio</span>
-        </div>
+        </button>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -651,16 +656,19 @@ const FAQ = () => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ onNavigate }) => {
   return (
     <footer className="text-white pt-24 pb-12 px-6" style={{ backgroundColor: colors.primary }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 font-bold text-3xl mb-8">
+            <button
+              onClick={() => onNavigate('home')}
+              className="flex items-center gap-3 font-bold text-3xl mb-8 cursor-pointer hover:opacity-80 transition-opacity"
+            >
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-xs font-black" style={{ color: colors.primary }}>AI</div>
               <span>AI SincStudio</span>
-            </div>
+            </button>
             <p className="text-2xl font-bold mb-4 leading-snug">
               資産のすべてを把握し、<br/>利益を最大化する。
             </p>
@@ -695,28 +703,39 @@ const Footer = () => {
 };
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
+  if (currentPage === 'postpartum-diet') {
+    return <PostpartumDietPage onNavigate={handleNavigate} />;
+  }
+
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#2251FF] selection:text-white scroll-smooth">
-      <Navbar />
+      <Navbar onNavigate={handleNavigate} />
       <Hero />
       <LogoTicker />
       <Problem />
-      <CTA 
-        title="資産管理を、戦略の武器に。" 
+      <CTA
+        title="資産管理を、戦略の武器に。"
         text={
           <>
             資料では、主な機能や導入イメージ、<br className="hidden md:inline" />
             税制メリットまで詳しくご紹介しています。ご相談もお気軽にご連絡ください。
           </>
         }
-        bgLight 
+        bgLight
       />
       <Features />
       <Functions />
       <Pricing />
       <FAQ />
       <CTA title="AI SincStudioで、新しい資産管理へ。" text="まずは資料ダウンロードから。導入効果や事例を詳しくご紹介します。" />
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 };
