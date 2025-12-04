@@ -206,7 +206,7 @@ const ConcernsSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 px-4" style={{ backgroundColor: colors.gray }}>
+    <section className="py-20 px-4" style={{ backgroundColor: colors.gray }}>
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4" style={{ fontFamily: "'Shippori Mincho', serif" }}>こんなお悩みはありませんか？</h2>
